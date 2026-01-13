@@ -64,25 +64,25 @@ public class MainSystem {
 			case 3:
 				// 検索する部署IDを入力
 				System.out.print(ConstantMsg.STRING_PROMPT_DEPT_ID);
-				String deptIdForSearch = br.readLine();
+				String deptId_search = br.readLine();
 
 				// 検索機能の呼出
-				DBController.findByDeptId(deptIdForSearch);
+				DBController.findByDeptId(deptId_search);
 				break;
 
 			case 4:
 				// 登録する値を入力
 				System.out.print(ConstantMsg.STRING_PROMPT_EMP_NAME);
-				String emp_name = br.readLine();
+				String emp_name_insert = br.readLine();
 				System.out.print(ConstantMsg.STRING_PROMPT_SELECT_GENDER);
-				String gender = br.readLine();
+				String gender_insert = br.readLine();
 				System.out.print(ConstantMsg.STRING_PROMPT_BIRTHDAY);
-				String birthday = br.readLine();
+				String birthday_insert = br.readLine();
 				System.out.print(ConstantMsg.STRING_PROMPT_SELECT_DEPT_ID);
-				String deptIdForInsert = br.readLine();
+				String deptId_insert = br.readLine();
 
 				// 登録機能の呼出
-				DBController.insert(emp_name, gender, birthday, deptIdForInsert);
+				DBController.insert(emp_name_insert, gender_insert, birthday_insert, deptId_insert);
 				break;
 
 			case 5:
@@ -90,11 +90,11 @@ public class MainSystem {
 				System.out.print(ConstantMsg.STRING_PROMPT_UPDATE_EMP_ID);
 
 				// 更新する値を入力する
-				String empId_1 = br.readLine();
-				Integer.parseInt(empId_1);
+				String empId_update = br.readLine();
+				Integer.parseInt(empId_update);
 
 				// 更新機能の呼出
-				DBController.update(empId_1);
+				DBController.update(empId_update);
 				System.out.println(ConstantMsg.STRING_UPDATE_FINISH);
 
 				break;
