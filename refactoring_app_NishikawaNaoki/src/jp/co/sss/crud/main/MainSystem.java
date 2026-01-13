@@ -50,7 +50,7 @@ public class MainSystem {
 			switch (menuNo) {
 			case 1:
 				// 全件表示機能の呼出
-				DBController.find();
+				DBController.findAll();
 				break;
 
 			case 2:
@@ -58,16 +58,16 @@ public class MainSystem {
 				System.out.print(ConstantMsg.STRING_PROMPT_EMP_NAME);
 
 				// 検索機能の呼出
-				DBController.findB();
+				DBController.findByEmpName();
 				break;
 
 			case 3:
 				// 検索する部署IDを入力
 				System.out.print(ConstantMsg.STRING_PROMPT_DEPT_ID);
-				String deptIdA = br.readLine();
+				String deptIdForSearch = br.readLine();
 
 				// 検索機能の呼出
-				DBController.findC(deptIdA);
+				DBController.findByDeptId(deptIdForSearch);
 				break;
 
 			case 4:
@@ -75,14 +75,14 @@ public class MainSystem {
 				System.out.print(ConstantMsg.STRING_PROMPT_EMP_NAME);
 				String emp_name = br.readLine();
 				System.out.print(ConstantMsg.STRING_PROMPT_SELECT_GENDER);
-				String Seibetsu = br.readLine();
+				String gender = br.readLine();
 				System.out.print(ConstantMsg.STRING_PROMPT_BIRTHDAY);
 				String birthday = br.readLine();
 				System.out.print(ConstantMsg.STRING_PROMPT_SELECT_DEPT_ID);
-				String deptIdB = br.readLine();
+				String deptIdForInsert = br.readLine();
 
 				// 登録機能の呼出
-				DBController.insert(emp_name, Seibetsu, birthday, deptIdB);
+				DBController.insert(emp_name, gender, birthday, deptIdForInsert);
 				break;
 
 			case 5:
