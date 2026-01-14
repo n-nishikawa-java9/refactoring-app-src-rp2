@@ -27,6 +27,7 @@ public class ConstantMsg {
 	public static final String STRING_REQUEST_MENU_NUM = "メニュー番号を入力してください：";
 
 	/** 入力用表示 */
+
 	public static final String STRING_PROMPT_EMP_NAME = "社員名:";
 
 	public static final String STRING_PROMPT_GENDER = "性別(0:その他, 1:男性, 2:女性, 9:回答なし):";
@@ -41,8 +42,19 @@ public class ConstantMsg {
 
 	/** 機能の動作完了メッセージ */
 
+	public static final String STRING_INSERT_FINISH = "社員情報を登録しました";
+
 	public static final String STRING_UPDATE_FINISH = "社員情報を更新しました";
 
+	public static final String STRING_DELETE_FINISH = "社員情報を削除しました";
+
 	public static final String STRING_EXIT_MSG = "システムを終了します。";
+
+	/** 検索機能用表示 */
+
+	public static final String STRING_NOT_FOUND = "該当者はいませんでした";
+
+	//リスト表示のヘッダー
+	public static final String STRING_LIST_HEADER = "社員ID\t社員名\t性別\t生年月日\t部署名";
 
 }

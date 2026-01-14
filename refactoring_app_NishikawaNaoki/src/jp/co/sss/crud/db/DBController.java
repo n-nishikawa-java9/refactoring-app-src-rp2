@@ -11,7 +11,9 @@ import java.sql.Types;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
+import jp.co.sss.crud.io.ConsoleWirter;
 import jp.co.sss.crud.util.ConstantSQL;
+import jp.co.sss.crud.util.ConstantValue;
 
 /**
  * DB操作処理用のクラス
@@ -47,26 +49,26 @@ public class DBController {
 
 			//resultSetの結果Setがない場合はfalse
 			if (!resultSet.isBeforeFirst()) {
-				System.out.println("該当者はいませんでした");
+				ConsoleWirter.showNotFaound();
 				return;
 			}
 
 			// レコードを出力
-			System.out.println("社員ID\t社員名\t性別\t生年月日\t部署名");
+			ConsoleWirter.showListHeader();
 			while (resultSet.next()) {
 				System.out.print(resultSet.getString("emp_id") + "\t");
 				System.out.print(resultSet.getString("emp_name") + "\t");
 
 				int gender = Integer.parseInt(resultSet.getString("gender"));
-				if (gender == 0) {
+				if (gender == ConstantValue.GENDER_NO_ANSER) {
 					System.out.print("回答なし" + "\t");
-				} else if (gender == 1) {
+				} else if (gender == ConstantValue.GENDER_MALE) {
 					System.out.print("男性" + "\t");
 
-				} else if (gender == 2) {
+				} else if (gender == ConstantValue.GENDER_FEMALE) {
 					System.out.print("女性" + "\t");
 
-				} else if (gender == 9) {
+				} else if (gender == ConstantValue.GENDER_NON_BINALY) {
 					System.out.print("その他" + "\t");
 
 				}
@@ -120,11 +122,11 @@ public class DBController {
 			// SQL文を実行
 			resultSet = preparedStatement.executeQuery();
 			if (!resultSet.isBeforeFirst()) {
-				System.out.println("該当者はいませんでした");
+				ConsoleWirter.showNotFaound();
 				return;
 			}
 
-			System.out.println("社員ID\t社員名\t性別\t生年月日\t部署名");
+			ConsoleWirter.showListHeader();
 			while (resultSet.next()) {
 				System.out.print(resultSet.getString("emp_id"));
 				System.out.print("\t");
@@ -134,15 +136,15 @@ public class DBController {
 
 				String genderString = resultSet.getString("gender");
 				int gender = Integer.parseInt(genderString);
-				if (gender == 0) {
+				if (gender == ConstantValue.GENDER_NO_ANSER) {
 					System.out.print("回答なし");
-				} else if (gender == 1) {
+				} else if (gender == ConstantValue.GENDER_MALE) {
 					System.out.print("男性");
 
-				} else if (gender == 2) {
+				} else if (gender == ConstantValue.GENDER_FEMALE) {
 					System.out.print("女性");
 
-				} else if (gender == 9) {
+				} else if (gender == ConstantValue.GENDER_NON_BINALY) {
 					System.out.print("その他");
 
 				}
@@ -197,11 +199,11 @@ public class DBController {
 			resultSet = preparedStatement.executeQuery();
 
 			if (!resultSet.isBeforeFirst()) {
-				System.out.println("該当者はいませんでした");
+				ConsoleWirter.showNotFaound();
 				return;
 			}
 
-			System.out.println("社員ID\t社員名\t性別\t生年月日\t部署名");
+			ConsoleWirter.showListHeader();
 			while (resultSet.next()) {
 				System.out.print(resultSet.getString("emp_id"));
 				System.out.print("\t");
@@ -211,15 +213,15 @@ public class DBController {
 
 				String genderString = resultSet.getString("gender");
 				int gender = Integer.parseInt(genderString);
-				if (gender == 0) {
+				if (gender == ConstantValue.GENDER_NO_ANSER) {
 					System.out.print("回答なし");
-				} else if (gender == 1) {
+				} else if (gender == ConstantValue.GENDER_MALE) {
 					System.out.print("男性");
 
-				} else if (gender == 2) {
+				} else if (gender == ConstantValue.GENDER_FEMALE) {
 					System.out.print("女性");
 
-				} else if (gender == 9) {
+				} else if (gender == ConstantValue.GENDER_NON_BINALY) {
 					System.out.print("その他");
 
 				}
@@ -285,7 +287,7 @@ public class DBController {
 			preparedStatement.executeUpdate();
 
 			// 登録完了メッセージを出力
-			System.out.println("社員情報を登録しました");
+			ConsoleWirter.showInsertFin();
 		} finally {
 			DBManager.close(preparedStatement);
 			DBManager.close(connection);
@@ -314,17 +316,17 @@ public class DBController {
 			// ステートメントの作成
 			preparedStatement = connection.prepareStatement(ConstantSQL.SQL_UPDATE);
 
-			System.out.print("社員名：");
+			ConsoleWirter.showPromptEmpName();
 			String emp_name = br.readLine();
 			// 性別を入力
-			System.out.print("性別(0:回答しない, 1:男性, 2:女性, 9:その他):");
+			ConsoleWirter.showPromptGender();
 			String gender = br.readLine();
 			// 誕生日を入力
-			System.out.print("生年月日(西暦年/月/日)：");
+			ConsoleWirter.showPromptBirthday();
 			String birthday = br.readLine();
 
 			// 部署IDを入力
-			System.out.print("部署ID(1：営業部、2：経理部、3：総務部)：");
+			ConsoleWirter.showPromptDeptId();
 			String deptId = br.readLine();
 
 			// 入力値をバインド
@@ -372,7 +374,7 @@ public class DBController {
 			// SQL文の実行(失敗時は戻り値0)
 			preparedStatement.executeUpdate();
 
-			System.out.println("社員情報を削除しました");
+			ConsoleWirter.showDeleteFin();
 
 		} catch (Exception e) {
 			e.printStackTrace();

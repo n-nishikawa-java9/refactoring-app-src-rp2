@@ -29,4 +29,18 @@ public class ConstantValue {
 	/** 終了 */
 	public static final int MENU_EXIT = 7;
 
+	// ***** DBの性別の設定値 *****
+
+	/** 回答なし */
+	public static final int GENDER_NO_ANSER = 0;
+
+	/** 男性 */
+	public static final int GENDER_MALE = 1;
+
+	/** 女性 */
+	public static final int GENDER_FEMALE = 2;
+
+	/** その他 */
+	public static final int GENDER_NON_BINALY = 9;
+
 }
