@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.text.ParseException;
 
 import jp.co.sss.crud.db.DBController;
-import jp.co.sss.crud.util.ConstantMsg;
+import jp.co.sss.crud.io.ConsoleWirter;
 
 /**
  * 社員情報管理システム開始クラス 社員情報管理システムはこのクラスから始まる。<br/>
@@ -32,15 +32,7 @@ public class MainSystem {
 
 		do {
 			// メニューの表示
-			System.out.println(ConstantMsg.STRING_SYSTEM_NAME);
-			System.out.println(ConstantMsg.STRING_ALL_SELECT);
-			System.out.println(ConstantMsg.STRING_SELECT_BY_EMP_NAME);
-			System.out.println(ConstantMsg.STRING_SELECT_BY_DEPT_ID);
-			System.out.println(ConstantMsg.STRING_INSERT);
-			System.out.println(ConstantMsg.STRING_UPDATE);
-			System.out.println(ConstantMsg.STRING_DELETE);
-			System.out.println(ConstantMsg.STRING_EXIT);
-			System.out.print(ConstantMsg.STRING_REQUEST_MENU_NUM);
+			ConsoleWirter.showMenu();
 
 			// メニュー番号の入力
 			String menuNoStr = br.readLine();
@@ -55,7 +47,7 @@ public class MainSystem {
 
 			case 2:
 				// 社員名検索
-				System.out.print(ConstantMsg.STRING_PROMPT_EMP_NAME);
+				ConsoleWirter.showPromptEmpName();
 
 				// 検索機能の呼出
 				DBController.findByEmpName();
@@ -63,7 +55,7 @@ public class MainSystem {
 
 			case 3:
 				// 検索する部署IDを入力
-				System.out.print(ConstantMsg.STRING_PROMPT_DEPT_ID);
+				ConsoleWirter.showPromptDeptId();
 				String deptId_search = br.readLine();
 
 				// 検索機能の呼出
@@ -72,13 +64,13 @@ public class MainSystem {
 
 			case 4:
 				// 登録する値を入力
-				System.out.print(ConstantMsg.STRING_PROMPT_EMP_NAME);
+				ConsoleWirter.showPromptEmpName();
 				String emp_name_insert = br.readLine();
-				System.out.print(ConstantMsg.STRING_PROMPT_SELECT_GENDER);
+				ConsoleWirter.showPromptGender();
 				String gender_insert = br.readLine();
-				System.out.print(ConstantMsg.STRING_PROMPT_BIRTHDAY);
+				ConsoleWirter.showPromptBirthday();
 				String birthday_insert = br.readLine();
-				System.out.print(ConstantMsg.STRING_PROMPT_SELECT_DEPT_ID);
+				ConsoleWirter.showPromptDeptId();
 				String deptId_insert = br.readLine();
 
 				// 登録機能の呼出
@@ -87,7 +79,7 @@ public class MainSystem {
 
 			case 5:
 				// 更新する社員IDを入力
-				System.out.print(ConstantMsg.STRING_PROMPT_UPDATE_EMP_ID);
+				ConsoleWirter.showEmpIdUpdate();
 
 				// 更新する値を入力する
 				String empId_update = br.readLine();
@@ -95,13 +87,13 @@ public class MainSystem {
 
 				// 更新機能の呼出
 				DBController.update(empId_update);
-				System.out.println(ConstantMsg.STRING_UPDATE_FINISH);
+				ConsoleWirter.showUpdateFin();
 
 				break;
 
 			case 6:
 				// 削除する社員IDを入力
-				System.out.print(ConstantMsg.STRING_PROMPT_DELETE_EMP_ID);
+				ConsoleWirter.showEmpIdDelete();
 
 				// 削除機能の呼出
 				DBController.delete();
@@ -109,6 +101,6 @@ public class MainSystem {
 
 			}
 		} while (menuNo != 7);
-		System.out.println(ConstantMsg.STRING_EXIT_MSG);
+		ConsoleWirter.showSystemExit();
 	}
 }

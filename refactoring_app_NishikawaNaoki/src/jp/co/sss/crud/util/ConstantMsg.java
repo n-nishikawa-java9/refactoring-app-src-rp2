@@ -29,13 +29,11 @@ public class ConstantMsg {
 	/** 入力用表示 */
 	public static final String STRING_PROMPT_EMP_NAME = "社員名:";
 
-	public static final String STRING_PROMPT_DEPT_ID = "部署ID(1:営業部、2:経理部、3:総務部)を入力してください:";
-
-	public static final String STRING_PROMPT_SELECT_GENDER = "性別(0:その他, 1:男性, 2:女性, 9:回答なし):";
+	public static final String STRING_PROMPT_GENDER = "性別(0:その他, 1:男性, 2:女性, 9:回答なし):";
 
 	public static final String STRING_PROMPT_BIRTHDAY = "生年月日(西暦年/月/日):";
 
-	public static final String STRING_PROMPT_SELECT_DEPT_ID = "部署ID(1:営業部、2:経理部、3:総務部):";
+	public static final String STRING_PROMPT_DEPT_ID = "部署ID(1:営業部、2:経理部、3:総務部):";
 
 	public static final String STRING_PROMPT_UPDATE_EMP_ID = "更新する社員の社員IDを入力してください：";
 
