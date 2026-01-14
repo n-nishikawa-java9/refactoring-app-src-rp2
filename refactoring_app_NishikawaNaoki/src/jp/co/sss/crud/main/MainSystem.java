@@ -8,6 +8,7 @@ import java.text.ParseException;
 
 import jp.co.sss.crud.db.DBController;
 import jp.co.sss.crud.io.ConsoleWirter;
+import jp.co.sss.crud.util.ConstantValue;
 
 /**
  * 社員情報管理システム開始クラス 社員情報管理システムはこのクラスから始まる。<br/>
@@ -40,12 +41,12 @@ public class MainSystem {
 
 			// 機能の呼出
 			switch (menuNo) {
-			case 1:
+			case ConstantValue.MENU_FIND_ALL:
 				// 全件表示機能の呼出
 				DBController.findAll();
 				break;
 
-			case 2:
+			case ConstantValue.MENU_FIND_BY_EMP_NAME:
 				// 社員名検索
 				ConsoleWirter.showPromptEmpName();
 
@@ -53,7 +54,7 @@ public class MainSystem {
 				DBController.findByEmpName();
 				break;
 
-			case 3:
+			case ConstantValue.MENU_FIND_BY_DEPT_ID:
 				// 検索する部署IDを入力
 				ConsoleWirter.showPromptDeptId();
 				String deptId_search = br.readLine();
@@ -62,7 +63,7 @@ public class MainSystem {
 				DBController.findByDeptId(deptId_search);
 				break;
 
-			case 4:
+			case ConstantValue.MENU_INSERT:
 				// 登録する値を入力
 				ConsoleWirter.showPromptEmpName();
 				String emp_name_insert = br.readLine();
@@ -77,7 +78,7 @@ public class MainSystem {
 				DBController.insert(emp_name_insert, gender_insert, birthday_insert, deptId_insert);
 				break;
 
-			case 5:
+			case ConstantValue.MENU_UPDATE:
 				// 更新する社員IDを入力
 				ConsoleWirter.showEmpIdUpdate();
 
@@ -91,7 +92,7 @@ public class MainSystem {
 
 				break;
 
-			case 6:
+			case ConstantValue.MENU_DELETE:
 				// 削除する社員IDを入力
 				ConsoleWirter.showEmpIdDelete();
 
@@ -100,7 +101,7 @@ public class MainSystem {
 				break;
 
 			}
-		} while (menuNo != 7);
+		} while (menuNo != ConstantValue.MENU_EXIT);
 		ConsoleWirter.showSystemExit();
 	}
 }
