@@ -13,9 +13,9 @@ public class ConsoleWirter {
 	 */
 	public static void showMenu() {
 		System.out.println(ConstantMsg.STRING_SYSTEM_NAME);
-		System.out.println(ConstantMsg.STRING_ALL_SELECT);
-		System.out.println(ConstantMsg.STRING_SELECT_BY_EMP_NAME);
-		System.out.println(ConstantMsg.STRING_SELECT_BY_DEPT_ID);
+		System.out.println(ConstantMsg.STRING_FIND_ALL);
+		System.out.println(ConstantMsg.STRING_FIND_BY_EMP_NAME);
+		System.out.println(ConstantMsg.STRING_FIND_BY_DEPT_ID);
 		System.out.println(ConstantMsg.STRING_INSERT);
 		System.out.println(ConstantMsg.STRING_UPDATE);
 		System.out.println(ConstantMsg.STRING_DELETE);

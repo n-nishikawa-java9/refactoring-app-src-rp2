@@ -10,11 +10,11 @@ public class ConstantMsg {
 
 	public static final String STRING_SYSTEM_NAME = "=== 社員管理システム ===";
 
-	public static final String STRING_ALL_SELECT = "1.全件表示";
+	public static final String STRING_FIND_ALL = "1.全件表示";
 
-	public static final String STRING_SELECT_BY_EMP_NAME = "2.社員名検索";
+	public static final String STRING_FIND_BY_EMP_NAME = "2.社員名検索";
 
-	public static final String STRING_SELECT_BY_DEPT_ID = "3.部署ID検索";
+	public static final String STRING_FIND_BY_DEPT_ID = "3.部署ID検索";
 
 	public static final String STRING_INSERT = "4.新規登録";
 
