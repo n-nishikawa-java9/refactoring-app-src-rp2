@@ -43,4 +43,14 @@ public class ConstantValue {
 	/** その他 */
 	public static final int GENDER_NON_BINALY = 9;
 
+	// ***** DBの部署番号の設定値 *****
+
+	/** 営業部 */
+	public static final int SALE_DEPT = 1;
+
+	/** 経理部 */
+	public static final int ACCOUNTING_DEPT = 2;
+
+	/** 総務部 */
+	public static final int GENERAL_AFFAIRS_DEPT = 3;
 }

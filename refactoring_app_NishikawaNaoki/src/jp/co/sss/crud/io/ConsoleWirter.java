@@ -5,7 +5,7 @@ import jp.co.sss.crud.util.ConstantMsg;
 /**
  * メニューのコンソール出力用クラス
  * コンソールへの画面出力を集約する。入力の取得、バリデーションは行わない。
- * 
+ * 表示内容はConstantMsg.javaに集約している
  */
 public class ConsoleWirter {
 	/**
@@ -102,6 +102,49 @@ public class ConsoleWirter {
 	 */
 	public static void showListHeader() {
 		System.out.println(ConstantMsg.STRING_LIST_HEADER);
+	}
+
+	/**
+	 * 空白表示
+	 */
+	public static void showBlank() {
+		System.out.print(ConstantMsg.STRING_BLANK);
+	}
+
+	public static void showNewLine() {
+		System.out.print(System.lineSeparator());
+	}
+
+	// ***** 性別 *****
+
+	public static void showGenderNoAns() {
+		System.out.print(ConstantMsg.STRING_GENDER_NO_ANSER);
+	}
+
+	public static void showGenderMale() {
+		System.out.print(ConstantMsg.STRING_GENDER_MALE);
+	}
+
+	public static void showGenderFemale() {
+		System.out.print(ConstantMsg.STRING_GENDER_FEMALE);
+	}
+
+	public static void showGenderNonBinaly() {
+		System.out.print(ConstantMsg.STRING_GENDER_NON_BINALY);
+	}
+
+	// ***** 部署 *****
+
+	public static void showDeptSale() {
+		System.out.print(ConstantMsg.STRING_SALE_DEPT);
+	}
+
+	public static void showDeptAccounting() {
+		System.out.print(ConstantMsg.STRING_ACCOUNTING_DEPT);
+	}
+
+	public static void showDeptGeneralAffairs() {
+		System.out.print(ConstantMsg.STRING_GENERAL_AFFAIRS_DEPT);
 	}
 
 }

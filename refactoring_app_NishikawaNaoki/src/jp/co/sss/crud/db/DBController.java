@@ -56,24 +56,32 @@ public class DBController {
 			// レコードを出力
 			ConsoleWirter.showListHeader();
 			while (resultSet.next()) {
-				System.out.print(resultSet.getString("emp_id") + "\t");
-				System.out.print(resultSet.getString("emp_name") + "\t");
+				System.out.print(resultSet.getString("emp_id"));
+				ConsoleWirter.showBlank();
+				System.out.print(resultSet.getString("emp_name"));
+				ConsoleWirter.showBlank();
 
 				int gender = Integer.parseInt(resultSet.getString("gender"));
 				if (gender == ConstantValue.GENDER_NO_ANSER) {
-					System.out.print("回答なし" + "\t");
+					ConsoleWirter.showGenderNoAns();
+					ConsoleWirter.showBlank();
+
 				} else if (gender == ConstantValue.GENDER_MALE) {
-					System.out.print("男性" + "\t");
+					ConsoleWirter.showGenderMale();
+					ConsoleWirter.showBlank();
 
 				} else if (gender == ConstantValue.GENDER_FEMALE) {
-					System.out.print("女性" + "\t");
+					ConsoleWirter.showGenderFemale();
+					ConsoleWirter.showBlank();
 
 				} else if (gender == ConstantValue.GENDER_NON_BINALY) {
-					System.out.print("その他" + "\t");
+					ConsoleWirter.showGenderNonBinaly();
+					ConsoleWirter.showBlank();
 
 				}
 
-				System.out.print(resultSet.getString("birthday") + "\t");
+				System.out.print(resultSet.getString("birthday"));
+				ConsoleWirter.showBlank();
 				System.out.println(resultSet.getString("dept_name"));
 			}
 
@@ -129,29 +137,30 @@ public class DBController {
 			ConsoleWirter.showListHeader();
 			while (resultSet.next()) {
 				System.out.print(resultSet.getString("emp_id"));
-				System.out.print("\t");
+				ConsoleWirter.showBlank();
 
 				System.out.print(resultSet.getString("emp_name"));
-				System.out.print("\t");
+				ConsoleWirter.showBlank();
 
 				String genderString = resultSet.getString("gender");
 				int gender = Integer.parseInt(genderString);
 				if (gender == ConstantValue.GENDER_NO_ANSER) {
-					System.out.print("回答なし");
+					ConsoleWirter.showGenderNoAns();
+
 				} else if (gender == ConstantValue.GENDER_MALE) {
-					System.out.print("男性");
+					ConsoleWirter.showGenderMale();
 
 				} else if (gender == ConstantValue.GENDER_FEMALE) {
-					System.out.print("女性");
+					ConsoleWirter.showGenderFemale();
 
 				} else if (gender == ConstantValue.GENDER_NON_BINALY) {
-					System.out.print("その他");
+					ConsoleWirter.showGenderNonBinaly();
 
 				}
 
-				System.out.print("\t");
+				ConsoleWirter.showBlank();
 				System.out.print(resultSet.getString("birthday"));
-				System.out.print("\t");
+				ConsoleWirter.showBlank();
 
 				System.out.println(resultSet.getString("dept_name"));
 			}
@@ -206,39 +215,42 @@ public class DBController {
 			ConsoleWirter.showListHeader();
 			while (resultSet.next()) {
 				System.out.print(resultSet.getString("emp_id"));
-				System.out.print("\t");
+				ConsoleWirter.showBlank();
 
 				System.out.print(resultSet.getString("emp_name"));
-				System.out.print("\t");
+				ConsoleWirter.showBlank();
 
 				String genderString = resultSet.getString("gender");
 				int gender = Integer.parseInt(genderString);
 				if (gender == ConstantValue.GENDER_NO_ANSER) {
-					System.out.print("回答なし");
+					ConsoleWirter.showGenderNoAns();
+
 				} else if (gender == ConstantValue.GENDER_MALE) {
-					System.out.print("男性");
+					ConsoleWirter.showGenderMale();
 
 				} else if (gender == ConstantValue.GENDER_FEMALE) {
-					System.out.print("女性");
+					ConsoleWirter.showGenderFemale();
 
 				} else if (gender == ConstantValue.GENDER_NON_BINALY) {
-					System.out.print("その他");
+					ConsoleWirter.showGenderNonBinaly();
 
 				}
 
-				System.out.print("\t");
+				ConsoleWirter.showBlank();
 				System.out.print(resultSet.getString("birthday"));
-				System.out.print("\t");
+				ConsoleWirter.showBlank();
 
 				String deptIdString = resultSet.getString("dept_id");
 				int deptIdForSearch = Integer.parseInt(deptIdString);
-				if (deptIdForSearch == 1) {
-					System.out.println("営業部");
-				} else if (deptIdForSearch == 2) {
-					System.out.println("経理部");
-				} else if (gender == 3) {
-					System.out.println("総務部");
-
+				if (deptIdForSearch == ConstantValue.SALE_DEPT) {
+					ConsoleWirter.showDeptSale();
+					ConsoleWirter.showNewLine();
+				} else if (deptIdForSearch == ConstantValue.ACCOUNTING_DEPT) {
+					ConsoleWirter.showDeptAccounting();
+					ConsoleWirter.showNewLine();
+				} else if (gender == ConstantValue.GENERAL_AFFAIRS_DEPT) {
+					ConsoleWirter.showDeptGeneralAffairs();
+					ConsoleWirter.showNewLine();
 				}
 			}
 
